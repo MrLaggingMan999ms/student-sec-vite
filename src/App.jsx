@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import StudentProvider, { StudentContext } from "./context/StudentProvider";
+import StudentCard from "./components/StudentCard";
 
 function App() {
   const { students } = useContext(StudentContext);
@@ -8,7 +9,7 @@ function App() {
     <div>
       <ul>
         {students && students.length > 0 ? (
-          students.map((st) => <li key={st._id}>{st.name}</li>)
+          students.map((st) => <StudentCard key={st._id} student={st}/>)
         ) : (
           <p>No students available</p>
         )}

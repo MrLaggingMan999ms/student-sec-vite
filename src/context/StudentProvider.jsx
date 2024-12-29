@@ -35,8 +35,17 @@ const StudentProvider = ({ children }) => {
     };
   }, []);
 
+  const deleteStudent = async (id) => {
+    const res = await fetch(`https://student-api-test.vercel.app/api/v1/students/${id}`, {
+    method:"DELETE",
+      headers: {
+        key: "43/UgWoJWW8pXKRmM48xYp8uuIXXLaBM1USAblj50X5GrVUdaluW36lEjoAbylSL6m4g9OXOxb9p7teXUyph5w",
+      },
+    })
+  }
+  
   return (
-    <StudentContext.Provider value={{ students }}>
+    <StudentContext.Provider value={{ students, deleteStudent }}>
       {children}
     </StudentContext.Provider>
   );
