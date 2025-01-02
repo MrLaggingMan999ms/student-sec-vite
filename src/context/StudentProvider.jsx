@@ -12,7 +12,7 @@ const StudentProvider = ({ children }) => {
         {
           method: "GET",
           headers: {
-            key: "43/UgWoJWW8pXKRmM48xYp8uuIXXLaBM1USAblj50X5GrVUdaluW36lEjoAbylSL6m4g9OXOxb9p7teXUyph5w",
+            key: process.env.REACT_APP_KEY,
           },
           signal,
         }
@@ -41,8 +41,7 @@ const StudentProvider = ({ children }) => {
       {
         method: "DELETE",
         headers: {
-          key: 
-          process.env.REACT_APP_API_KEY,
+          key: process.env.REACT_APP_KEY,
         },
       }
     );
