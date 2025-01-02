@@ -54,9 +54,27 @@ const StudentProvider = ({ children }) => {
     setStudents([...filterStudent]);
   };
 
+  const createStudent = async (newStudent) => {
+    const res = await fetch(
+      `https://student-api-test.vercel.app/api/v1/students/`,
+      {
+        method: "POST",
+        headers: {
+          key:
+          "43/UgWoJWW8pXKRmM48xYp8uuIXXLaBM1USAblj50X5GrVUdaluW36lEjoAbylSL6m4g9OXOxb9p7teXUyph5w",
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newStudent),
+      }
+    );
+
+    const data = await res.json();
+    console.log(data);
+    setStudents([...students, data.student]);
+  };
   
   return (
-    <StudentContext.Provider value={{ students, deleteStudent }}>
+    <StudentContext.Provider value={{ students, deleteStudent, createStudent }}>
       {children}
     </StudentContext.Provider>
   );
