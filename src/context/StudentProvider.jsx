@@ -1,10 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
+import "dotenv";
 
 export const StudentContext = createContext(null);
 
 const StudentProvider = ({ children }) => {
   const [students, setStudents] = useState([]);
-
+  
   const fetchStudents = async (signal) => {
     try {
       const res = await fetch(
@@ -41,7 +42,8 @@ const StudentProvider = ({ children }) => {
       {
         method: "DELETE",
         headers: {
-          key: process.env.REACT_APP_KEY,
+          key:
+          "43/UgWoJWW8pXKRmM48xYp8uuIXXLaBM1USAblj50X5GrVUdaluW36lEjoAbylSL6m4g9OXOxb9p7teXUyph5w",
         },
       }
     );
@@ -52,6 +54,7 @@ const StudentProvider = ({ children }) => {
     setStudents([...filterStudent]);
   };
 
+  
   return (
     <StudentContext.Provider value={{ students, deleteStudent }}>
       {children}
