@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import {  useContext, useRef, useState } from "react";
-import useStudent from "../../hooks/useStudent";
+import { StudentContext } from "../context/StudentProvider";
 
 const StudentForm = () => {
   const {} = useContext(StudentContext);
@@ -32,7 +31,7 @@ const StudentForm = () => {
     };
     const { name, major, avatar, email } = newStudent;
     if ((name, major, avatar, email)) {
-      
+      createStudent(newStudent);
       frmReset();
     } else {
       alert("required data");

@@ -13,7 +13,7 @@ const StudentProvider = ({ children }) => {
         {
           method: "GET",
           headers: {
-            key: process.env.REACT_APP_KEY,
+            key: "43/UgWoJWW8pXKRmM48xYp8uuIXXLaBM1USAblj50X5GrVUdaluW36lEjoAbylSL6m4g9OXOxb9p7teXUyph5w",
           },
           signal,
         }
