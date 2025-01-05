@@ -2,7 +2,7 @@ import {  useContext, useRef, useState } from "react";
 import { StudentContext } from "../context/StudentProvider";
 
 const StudentForm = () => {
-  const {} = useContext(StudentContext);
+  const {createStudent} = useContext(StudentContext);
   const [isCreating, setIsCreating] = useState(false);
 
   const refName = useRef(null);

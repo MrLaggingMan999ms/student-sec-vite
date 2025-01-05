@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
-import StudentProvider, { StudentContext } from "./context/StudentProvider";
+import { useContext } from "react";
+import { StudentContext } from "./context/StudentProvider";
 import StudentCard from "./components/StudentCard";
+import StudentForm from "./components/StudentForm";
 
 function App() {
   const { students } = useContext(StudentContext);
 
   return (
-    <div>
+    <>
+      <StudentForm/>
       <ul>
         {students && students.length > 0 ? (
           students.map((st) => <StudentCard key={st._id} student={st}/>)
@@ -14,7 +16,7 @@ function App() {
           <p>No students available</p>
         )}
       </ul>
-    </div>
+    </>
   );
 }
 
